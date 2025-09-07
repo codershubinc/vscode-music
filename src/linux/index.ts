@@ -5,6 +5,7 @@ import * as https from 'https';
 import * as http from 'http';
 import { LinuxMusicService } from './musicService';
 import { ArtworkUtil } from './utils/artworkUtil';
+import { IMusicController, TrackInfo } from '../common/interfaces/musicController';
 
 /**
  * ========================================================================
@@ -45,7 +46,7 @@ import { ArtworkUtil } from './utils/artworkUtil';
  * - Clear separation of concerns (UI logic vs platform logic)
  * - Future Windows/macOS controllers can implement same interface
  */
-export class LinuxMusicController {
+export class LinuxMusicController implements IMusicController {
     private musicService: LinuxMusicService;
     private context: vscode.ExtensionContext;
     private artworkCache = new Map<string, string>();

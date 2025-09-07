@@ -4,17 +4,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as https from 'https';
 import * as http from 'http';
+import { TrackInfo } from '../common/interfaces/musicController';
 
-export interface TrackInfo {
-    title: string;
-    artUrl: string;
-    artist: string;
-    album: string;
-    duration?: number;
-    position?: number;
-    status: 'playing' | 'paused' | 'stopped';
-    player?: string;
-}
+export { TrackInfo };
 
 export class LinuxMusicService {
     private updateInterval: NodeJS.Timeout | null = null;

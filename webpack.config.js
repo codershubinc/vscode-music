@@ -61,6 +61,11 @@ const extensionConfig = {
           from: 'src/common/ui/webview/musicPlayer.html',
           to: 'src/common/ui/webview/musicPlayer.html',
           noErrorOnMissing: true
+        },
+        {
+          from: 'src/windows/WinKlang.exe',
+          to: 'src/windows/WinKlang.exe',
+          noErrorOnMissing: true
         }
       ]
     })

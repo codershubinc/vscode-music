@@ -39,10 +39,10 @@ function showNoMusic() {
     // console.log("Showing no music UI");
 
     // Clear any running intervals
-    if (progressUpdateInterval) {
-        clearInterval(progressUpdateInterval);
-        progressUpdateInterval = null;
-    }
+    // if (progressUpdateInterval) {
+    //     clearInterval(progressUpdateInterval);
+    //     progressUpdateInterval = null;
+    // }
 
     const musicInfoEl = document.getElementById('music-info');
     const noMusicEl = document.getElementById('no-music');

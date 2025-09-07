@@ -47,6 +47,7 @@
     "dist/**/*.js",
     "dist/**/*.html",
     "dist/**/*.css",
+    "dist/**/*.exe",
     "ico.png",
     "icon.svg",
     "LICENSE",

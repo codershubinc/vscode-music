@@ -4,6 +4,8 @@ import * as fs from 'fs';
 import * as os from 'os';
 
 import LinuxMusicController from '../../linux/index';
+import WindowsMusicController from '../../windows';
+import { IMusicController } from '../interfaces/musicController';
 
 // Unified webview provider that works across all platforms using platform-specific controllers
 export class MusicWebviewProvider implements vscode.WebviewViewProvider {
@@ -11,7 +13,7 @@ export class MusicWebviewProvider implements vscode.WebviewViewProvider {
     public static readonly viewType = 'vsMusicPlayer';
 
     private _view?: vscode.WebviewView;
-    private _controller: LinuxMusicController;
+    private _controller: IMusicController;
     private _updateTimer?: NodeJS.Timeout;
     private _context: vscode.ExtensionContext;
 
@@ -25,6 +27,10 @@ export class MusicWebviewProvider implements vscode.WebviewViewProvider {
             case 'linux':
                 this._controller = new LinuxMusicController(context);
                 console.log('🐧 Initialized Linux music controller (MPRIS/playerctl)');
+                break;
+            case 'win32':
+                this._controller = new WindowsMusicController(context);
+                console.log('🪟 Initialized Windows music controller (Windows Media Session API)');
                 break;
             default:
                 this._controller = new LinuxMusicController(context);
